@@ -96,8 +96,58 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # first need to check if there is a number to the right to compare to left num
+        # if can move right move
+        # if num to le
+        self.set_light_on()
+        while self.light_is_on():
+            self.swap_item()
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() == 1:
+                    self.swap_item() 
+            while self.compare_item() is not None:
+                self.move_left()
+            else:
+                self.swap_item() # replace None with lowest num
+                if self.can_move_right():
+                    self.move_right() # after swapping out None with lowest move right to next position
+                    # self.swap_item() # pick up next num in array
+                else:
+                    self.set_light_off()
+        # self.set_light_off()
+        # if self.light_is_on() is False:
+        #     if self.compare_item() == 1:
+        #         self.set_light_on()
+        #     else:
+        #         self.set_light_off()
+        # return self._list
+        # for i in range(0, len(self._list) -1):
+        #     curr_index = i
+        #     small = curr_index
+        #     for a in range(curr_index + 1, len(self._list)):
+        #         if self._list[a] < self._list[small]:
+        #             small = a
+        #     self._list[small], self._list[curr_index] = self._list[curr_index], self._list[small]
+        # return self._list
+
+        #         self.set_light_on()
+        # x = self.compare_item()
+        # while self.light_is_on():
+        #     for i in range(0, len(self._list) - 1): 
+        #         self._position = i
+        #         self._item = self._list[self._position]
+        #         if self.can_move_right():
+        #               self.move_right()
+        #               self.compare_item()
+        #               if x == 1:
+        #                   self.swap_item()
+        #                   if self.can_move_left():
+        #                       self.move_left()
+        #               if x == -1:
+        #                   self.move_right()
+        #               if x == 0:
+        #                   self.move_right()
 
 
 if __name__ == "__main__":
